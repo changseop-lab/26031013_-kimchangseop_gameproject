@@ -24,13 +24,14 @@ class G2AudioContext : IDisposable
 		try
 		{
 			audio = XAudio2.XAudio2Create();
-			masteringVoice = audio.CreateMasteringVoice();
+			//masteringVoice = audio.CreateMasteringVoice();
 			Audio = audio;
 			MasteringVoice = masteringVoice;
 		}
 		catch
 		{
-			masteringVoice?.Dispose();
+            
+            masteringVoice?.Dispose();
 			audio?.Dispose();
 			throw;
 		}
@@ -39,7 +40,7 @@ class G2AudioContext : IDisposable
 
 	public void Dispose()
 	{
-		MasteringVoice.Dispose();
+		//MasteringVoice.Dispose();
 		Audio.Dispose();
 		Instance = null;
 	}
